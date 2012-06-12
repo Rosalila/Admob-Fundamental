@@ -35,7 +35,7 @@ public class BannerSample extends Activity {
     // Add the AdView to the view hierarchy. The view will have no size
     // until the ad is loaded.
     
-    LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout);
+    LinearLayout layout = (LinearLayout) findViewById(R.id.linearLayout2);
     Panel mPanel = (Panel) findViewById(R.id.SurfaceView01);
     mPanel.mSoundManager=mSoundManager;
     layout.addView(adView);
