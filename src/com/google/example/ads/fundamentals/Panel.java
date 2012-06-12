@@ -21,14 +21,13 @@ class Panel extends SurfaceView implements SurfaceHolder.Callback {
 	CanvasThread canvasthread;
 	private float mTouchX;
 	private float mTouchY;
-	
-	mSoundManager.playSound(1);
+	public SoundManager mSoundManager;
 	
     Bitmap kangoo = BitmapFactory.decodeResource(getResources(),R.drawable.kangoo);
 
 	public Panel(Context context, AttributeSet attrs) {
-	        super(context, attrs);
-	        // TODO Auto-generated constructor stub
+        super(context, attrs);
+        // TODO Auto-generated constructor stub
 	    getHolder().addCallback(this);
 	    canvasthread = new CanvasThread(getHolder(), this);
 	    setFocusable(true);
@@ -76,6 +75,7 @@ class Panel extends SurfaceView implements SurfaceHolder.Callback {
 	@Override
 	public boolean onTouchEvent(MotionEvent event)
 	{
+		mSoundManager.playSound(1);
 		if (event.getAction() == MotionEvent.ACTION_MOVE)
 		{
 			mTouchX = event.getX();
