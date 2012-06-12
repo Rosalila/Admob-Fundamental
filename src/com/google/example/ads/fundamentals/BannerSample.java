@@ -11,15 +11,23 @@ import android.widget.LinearLayout;
 /**
  * A simple {@link Activity} that embeds an AdView.
  */
+
 public class BannerSample extends Activity {
   /** The view to show the ad. */
   private AdView adView;
+  public SoundManager mSoundManager;
 
   /** Called when the activity is first created. */
   @Override
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.main);
+    
+    mSoundManager = new SoundManager();
+    mSoundManager.initSounds(getBaseContext());
+    mSoundManager.addSound(1, R.raw.sound);
+    
+    
 
     // Create an ad.
     adView = new AdView(this, AdSize.BANNER, "a14fd28a6ed31f2");
@@ -44,6 +52,7 @@ public class BannerSample extends Activity {
   @Override
   public void onDestroy() {
     // Destroy the AdView.
+	  mSoundManager.playSound(1);
     if (adView != null) {
       adView.destroy();
     }
